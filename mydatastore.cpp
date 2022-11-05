@@ -76,18 +76,18 @@ std::vector<Product*> myDataStore::search(std::vector<std::string>& terms, int t
 }
 
 void myDataStore::dump(std::ostream& ofile) {
-    ofile<<"<Products>"<<endl;
+    ofile<<"<products>"<<endl;
     for (std::set <Product*>::iterator it=productlist.begin();it!=productlist.end();++it)
     {
         (*it)->dump(ofile);
     }
-    ofile<<"/Products"<<endl;
-    ofile<<"Users"<<endl;
+    ofile<<"</products>"<<endl;
+    ofile<<"<users>"<<endl;
     for (std::set <User*>::iterator it=userlist.begin();it!=userlist.end();++it)
     {
         (*it)->dump(ofile);
     }
-    ofile<<"/Users"<<endl;
+    ofile<<"</users>";
 }
 void myDataStore::addToCart(User* u,Product* p) {
     userPairs.find(u)->second.push_back(p);
@@ -98,8 +98,8 @@ void myDataStore::viewCart(User* u) {
     int count=1;
     for (std::vector<Product*>::iterator it=usercart.begin(); it!=usercart.end();++it)
     {
-        cout<<"Item "<<count<<": ";
-        cout<<(*it)->getName()<<endl;
+        cout<<"Item "<<count<<endl;
+        cout<<(*it)->displayString()<<endl;
         count++;
     }
 }

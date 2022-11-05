@@ -27,7 +27,7 @@ Movie::~Movie()
 void Movie::dump(std::ostream& os) const{
   os<<"movie"<<endl;
   os<<getName()<<endl;
-  os<<getPrice()<<endl;
+  os << setprecision(2) << fixed << getPrice()<<endl;
   os<<getQty()<<endl;
   os<<genre<<endl;
   os<<rating<<endl;
@@ -41,9 +41,9 @@ std::string Movie::displayString() const {
   output+=" Rating: ";
   output+=rating;
   output+="\n";
-  std::string str = std::to_string (getPrice());
-  str.erase ( str.find_last_not_of('0') + 1, std::string::npos );
-  str.erase ( str.find_last_not_of('.') + 1, std::string::npos );
+  std::ostringstream oss;
+  oss << setprecision(2) << fixed << getPrice();
+  string str = oss.str();
   output+=str;
   output+=" ";
   output+=to_string(getQty());

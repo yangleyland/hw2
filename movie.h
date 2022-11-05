@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 #include <set>
+#include <iomanip>
+#include <sstream>
 #include "product.h"
 #include "util.h"
 class Movie : public Product {

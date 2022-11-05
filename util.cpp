@@ -24,9 +24,8 @@ std::set<std::string> parseStringToWords(string rawWords)
         {
             currentWord+=rawWords[i];
         }
-        if (rawWords[i]==' ' || i==(int)rawWords.length()-1)
-        {
-            if (currentWord.length()>2)
+        else {
+            if (currentWord.length()>=2)
             {
                 stringToWords.insert(currentWord);
                 currentWord="";
@@ -35,6 +34,9 @@ std::set<std::string> parseStringToWords(string rawWords)
             {
                 currentWord="";
             }
+        }
+        if (i==(int)rawWords.length()-1 && currentWord.length()>=2) {
+            stringToWords.insert(currentWord);
         }
     }
   return stringToWords;

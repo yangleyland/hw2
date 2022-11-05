@@ -139,7 +139,7 @@ int main(int argc, char* argv[])
                 if (ss>>username) {
                     //find user object
                     if (ds.findUser(username)==NULL){
-                       cout<<"Invalid request"<<endl; 
+                       cout<<"Invalid username"<<endl; 
                     }
                     else {
                         ds.viewCart(ds.findUser(username));
@@ -152,7 +152,7 @@ int main(int argc, char* argv[])
                 if (ss>>username) {
                     //find user object
                     if (ds.findUser(username)==NULL){
-                       cout<<"Invalid request"<<endl; 
+                       cout<<"Invalid username"<<endl; 
                     }
                     else {
                         ds.buyCart(ds.findUser(username));

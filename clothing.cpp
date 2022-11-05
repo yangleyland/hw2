@@ -27,7 +27,7 @@ Clothing::~Clothing()
 void Clothing::dump(std::ostream& os) const{
   os<<"clothing"<<endl;
   os<<getName()<<endl;
-  os<<getPrice()<<endl;
+  os << setprecision(2) << fixed << getPrice()<<endl;
   os<<getQty()<<endl;
   os<<size<<endl;
   os<<brand<<endl;
@@ -41,9 +41,9 @@ std::string Clothing::displayString() const {
   output+=" Brand: ";
   output+=brand;
   output+="\n";
-  std::string str = std::to_string (getPrice());
-  str.erase ( str.find_last_not_of('0') + 1, std::string::npos );
-  str.erase ( str.find_last_not_of('.') + 1, std::string::npos );
+  std::ostringstream oss;
+  oss << setprecision(2) << fixed << getPrice();
+  string str = oss.str();
   output+=str;
   output+=" ";
   output+=to_string(getQty());

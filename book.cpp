@@ -31,7 +31,7 @@ Book::~Book()
 void Book::dump(std::ostream& os) const{
   os<<"book"<<endl;
   os<<getName()<<endl;
-  os<<getPrice()<<endl;
+  os << setprecision(2) << fixed << getPrice()<<endl;
   os<<getQty()<<endl;
   os<<ISBN<<endl;
   os<<author<<endl;
@@ -46,9 +46,9 @@ std::string Book::displayString() const {
   output+=" ISBN: ";
   output+=ISBN;
   output+="\n";
-  std::string str = std::to_string (getPrice());
-  str.erase ( str.find_last_not_of('0') + 1, std::string::npos );
-  str.erase ( str.find_last_not_of('.') + 1, std::string::npos );
+  std::ostringstream oss;
+  oss << setprecision(2) << fixed << getPrice();
+  string str = oss.str();
   output+=str;
   output+=" ";
   output+=to_string(getQty());
